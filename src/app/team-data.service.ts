@@ -12,4 +12,7 @@ export class TeamDataService {
   public getTeams(): Observable<Team[]> {
     return this._httpClient.get<Team[]>("http://localhost:3000/teams")
   }
+  public getTeam(teamId: String): Observable<Team> {
+    return this._httpClient.get<Team>("http://localhost:3000/teams/" + teamId)
+  }
 }

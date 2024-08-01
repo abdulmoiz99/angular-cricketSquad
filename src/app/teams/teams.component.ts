@@ -8,10 +8,23 @@ export class Team {
   #country!: string;
   #yearEstablished!: string;
   #totalWorldCupWon!: number;
+  #players!: Players[];
   get _id() { return this.#_id; }
   get country() { return this.#country; }
   get yearEstablished() { return this.#yearEstablished; }
   get totalWorldCupWon() { return this.#totalWorldCupWon; }
+  get players() { return this.#players; }
+}
+class Players {
+  #_id!: string;
+  #name!: string;
+  #age!: number;
+  #yearJoined!: number;
+
+  get _id() { return this.#_id; }
+  get name() { return this.#name; }
+  get age() { return this.#age; }
+  get yearJoined() { return this.#yearJoined; }
 }
 
 @Component({
@@ -21,10 +34,11 @@ export class Team {
   templateUrl: './teams.component.html',
   styleUrl: './teams.component.css'
 })
+
 export class TeamsComponent implements OnInit {
 
   teams: Team[] = []
-  
+
   constructor(private _teamDataService: TeamDataService) { }
 
   ngOnInit(): void {
